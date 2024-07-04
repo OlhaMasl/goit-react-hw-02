@@ -1,0 +1,20 @@
+.container {
+padding: 20px;
+}
+
+.cafeName {
+margin-bottom: 28px;
+color: #0d0d0e;
+font-size: 36px;
+font-weight: 700;
+line-height: 1.11;
+letter-spacing: 0.02em;
+}
+
+.instruction {
+color: #1c1c1d;
+font-size: 24px;
+font-weight: 400;
+line-height: 1.11;
+letter-spacing: 0.02em;
+}
