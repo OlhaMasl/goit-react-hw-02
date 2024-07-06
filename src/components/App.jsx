@@ -9,6 +9,7 @@ import "../index.css"
 import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
 import Option from "./Option/Option";
+import Notification from "./Notification/Notification";
 
 
 const App = () => {
@@ -18,28 +19,20 @@ const App = () => {
 	bad: 0
   })
 
-  const handleFeedback = option => {
-    setFeedbackList( prev => ({...prev, [option]:prev[option]+1}))
+  const updateFeedback = feedbackType => {
+    setFeedbackList( prev => ({...prev, [feedbackType]:prev[feedbackType]+1}))
    };
 
     return (
       <>
         <Description />
-        <Option fn={handleFeedback} />
+        <Option fn={updateFeedback} />
         <Feedback
           good={feedbackList.good}
           neutral={feedbackList.neutral}
           bad={feedbackList.bad}
         />
-      {/* <Profile
-        name={userData.username}
-        tag={userData.tag}
-        location={userData.location}
-        image={userData.avatar}
-        stats={userData.stats}
-      />
-      <FriendList friends={friends} />
-      <TransactionHistory items={transactions} /> */}
+        <Notification />
     </>
   );
 };
