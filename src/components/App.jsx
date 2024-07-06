@@ -1,9 +1,3 @@
-// import userData from "../userData.json";
-// import friends from "../friends.json";
-// import transactions from "../transactions.json";
-// import Profile from "./Profile/Profile";
-// import FriendList from "./FriendList/FriendList";
-// import TransactionHistory from "./TransactionHistory/TransactionHistory";
 import { useState } from "react";
 import "../index.css"
 import Description from "./Description/Description";
@@ -19,6 +13,8 @@ const App = () => {
 	bad: 0
   })
 
+  const totalFeedback = feedbackList.good + feedbackList.neutral + feedbackList.bad;
+
   const updateFeedback = feedbackType => {
     setFeedbackList( prev => ({...prev, [feedbackType]:prev[feedbackType]+1}))
    };
@@ -27,12 +23,7 @@ const App = () => {
       <>
         <Description />
         <Option fn={updateFeedback} />
-        <Feedback
-          good={feedbackList.good}
-          neutral={feedbackList.neutral}
-          bad={feedbackList.bad}
-        />
-        <Notification />
+        { totalFeedback > 0 ? <Feedback good={feedbackList.good} neutral={feedbackList.neutral} bad={feedbackList.bad}/> : <Notification/> }
     </>
   );
 };
