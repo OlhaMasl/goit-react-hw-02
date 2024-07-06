@@ -17,13 +17,15 @@ const App = () => {
 	neutral: 0,
 	bad: 0
   })
-  
-  console.log(feedbackList);
+
+  const handleFeedback = option => {
+    setFeedbackList( prev => ({...prev, [option]:prev[option]+1}))
+   };
 
     return (
       <>
         <Description />
-        <Option />
+        <Option fn={handleFeedback} />
         <Feedback
           good={feedbackList.good}
           neutral={feedbackList.neutral}

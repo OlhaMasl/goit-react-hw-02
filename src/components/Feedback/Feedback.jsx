@@ -1,7 +1,7 @@
 import s from "./Feedback.module.css";
 
 const Feedback = ({good, neutral, bad}) => {
-    console.log(good);
+    
    const totalFeedback = good + neutral + bad;
     
     return (
