@@ -1,6 +1,6 @@
-import s from "./Optiom.module.css";
+import s from "./Options.module.css";
 
-const Option = ({ fn, resetFn, total }) => {
+const Options = ({ fn, resetFn, total }) => {
 
     return (
         <div className={ s.container}>
@@ -12,4 +12,4 @@ const Option = ({ fn, resetFn, total }) => {
     );
 };
 
-export default Option;
+export default Options;

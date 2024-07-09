@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../index.css"
 import Description from "./Description/Description";
 import Feedback from "./Feedback/Feedback";
-import Option from "./Option/Option";
+import Options from "./Options/Options";
 import Notification from "./Notification/Notification";
 
 
@@ -20,6 +20,8 @@ const App = () => {
   })
 
   const totalFeedback = feedbackList.good + feedbackList.neutral + feedbackList.bad;
+  const positiveFeedback = Math.round((feedbackList.good / totalFeedback) * 100);
+
 
   const updateFeedback = feedbackType => {
     setFeedbackList( prev => ({...prev, [feedbackType]:prev[feedbackType]+1}))
@@ -40,8 +42,8 @@ const App = () => {
     return (
       <>
         <Description />
-        <Option fn={updateFeedback} resetFn={resetFeedback} total={totalFeedback} />
-        {totalFeedback > 0 ? <Feedback good={feedbackList.good} neutral={feedbackList.neutral} bad={feedbackList.bad} total={totalFeedback} /> : <Notification/> }
+        <Options fn={updateFeedback} resetFn={resetFeedback} total={totalFeedback} />
+        {totalFeedback > 0 ? <Feedback good={feedbackList.good} neutral={feedbackList.neutral} bad={feedbackList.bad} total={totalFeedback} positive={positiveFeedback} /> : <Notification/> }
     </>
   );
 };
